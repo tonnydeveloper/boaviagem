@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:title="@string/dashboard"
+        app:titleTextColor="@color/black"
+        app:titleCentered="true"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/teste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_lock_power_off"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_gravity="end"
+            android:padding="8dp"/>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+    
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGasto"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:text="@string/gasto"
+        app:cornerRadius="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guidelineHorizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVertical"
+        android:layout_margin="8dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNovaViagem"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:text="@string/viagemNova"
+        app:cornerRadius="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guidelineHorizontal"
+        app:layout_constraintStart_toEndOf="@id/guidelineVertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="8dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/minhasViagens"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:text="@string/minhaViagem"
+        app:cornerRadius="20dp"
+        app:layout_constraintTop_toBottomOf="@id/guidelineHorizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVertical"
+        android:layout_margin="8dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/gastos"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:text="@string/gastos"
+        app:cornerRadius="20dp"
+        app:layout_constraintTop_toBottomOf="@id/guidelineHorizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guidelineVertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

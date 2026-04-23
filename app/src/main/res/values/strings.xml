@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Boa Viagem</string>
+    <string name="userName">Login</string>
+    <string name="pass">Senha</string>
+    <string name="btnLogin">Login</string>
+    <string name="cad">Cadastro</string>
+    <string name="gasto">Novo Gasto</string>
+    <string name="viagemNova">Nova Viagem</string>
+    <string name="minhaViagem">Minhas Viagens</string>
+    <string name="gastos">Gastos</string>
+    <string name="email">Email</string>
+    <string name="nome">Nome</string>
+    <string name="phone">Telefone</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="destino">Destino</string>
+</resources>
