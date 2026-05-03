@@ -13,4 +13,6 @@
     <string name="phone">Telefone</string>
     <string name="dashboard">Dashboard</string>
     <string name="destino">Destino</string>
+    <string name="lazer">Lazer</string>
+    <string name="work">Trabalho</string>
 </resources>

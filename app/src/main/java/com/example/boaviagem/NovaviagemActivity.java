@@ -5,10 +5,16 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -40,17 +46,31 @@ public class NovaviagemActivity extends AppCompatActivity {
         TextInputEditText chegada = findViewById(R.id.editDataChegada);
         TextInputEditText destino = findViewById(R.id.editDestino);
         TextInputEditText saida = findViewById(R.id.editDataSaida);
-        TextInputEditText tipo = findViewById(R.id.editTipoViagem);
         TextInputEditText orcamento = findViewById(R.id.editOrcamento);
         TextInputEditText pessoas = findViewById(R.id.editQtdPessoas);
         Button salvar = findViewById(R.id.btnSalvar);
         TextInputLayout layoutChegada = findViewById(R.id.layoutDataChegada);
         TextInputLayout layoutDestino = findViewById(R.id.layoutDestino);
         TextInputLayout layoutSaida = findViewById(R.id.layoutDataSaida);
-        TextInputLayout layoutTipo = findViewById(R.id.layoutTipo);
         TextInputLayout layoutOrcamento = findViewById(R.id.layoutOrcamento);
         TextInputLayout layoutPessoas = findViewById(R.id.layoutQtdPessoas);
+        RadioGroup radioGroup = findViewById(R.id.GroupTipo);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(@NonNull RadioGroup radioGroup, int checked) {
+                RadioButton selected = findViewById(checked);
+                String text = selected.getText().toString();
 
+                Toast.makeText(NovaviagemActivity.this, text, Toast.LENGTH_SHORT).show();
+            }
+        });
+        int init = radioGroup.getCheckedRadioButtonId();
+
+        if (init != -1){
+            RadioButton selected = findViewById(init);
+            String text = selected.getText().toString();
+            Toast.makeText(NovaviagemActivity.this, String.valueOf(text), Toast.LENGTH_SHORT).show();
+        }
         Integer id = s.getInt("id", 0);
         salvar.setOnClickListener(view -> {
             if(destino.getText().toString().isEmpty()){
@@ -59,14 +79,6 @@ public class NovaviagemActivity extends AppCompatActivity {
                 return;
             }else{
                 layoutDestino.setError(null);
-            }
-
-            if(tipo.getText().toString().isEmpty()){
-                layoutTipo.setError("Campo Obrigatório!");
-                tipo.requestFocus();
-                return;
-            }else{
-                layoutTipo.setError(null);
             }
 
             if(chegada.getText().toString().isEmpty()){
@@ -112,9 +124,12 @@ public class NovaviagemActivity extends AppCompatActivity {
                 dataSaida = data2.toString();
             }
 
+            RadioButton selected = findViewById(init);
+            String text = selected.getText().toString().toLowerCase();
+            int t  = (text.equals("lazer") ? 1 : (text.equals("trabalho") ? 2 : 0));
             ContentValues values = new ContentValues();
             values.put("destino", destino.getText().toString());
-            values.put("tipo_viagem", Integer.parseInt(tipo.getText().toString()));
+            values.put("tipo_viagem", t);
             values.put("data_chegada", dataChegada);
             values.put("data_saida", dataSaida);
             values.put("orcamento", Double.parseDouble(orcamento.getText().toString()));

@@ -83,7 +83,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 float orcamento = cursor.getFloat(5);
                 int pessoas = cursor.getInt(6);
 
-                String tipoTexto = (tipo == 1) ? "Lazer" : "Negócios";
+                String tipoTexto = (tipo == 1) ? "Lazer" : (tipo == 2) ? "Negócios" : "Indefinido";
 
                 String dados = "Destino: " + destino + "\n" +
                         "Tipo: " + tipoTexto + " | Pessoas: " + pessoas + "\n" +
