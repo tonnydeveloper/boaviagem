@@ -1,4 +1,4 @@
-# Relatório de Desenvolvimento: App de Estudos Mobile
+ # Relatório de Desenvolvimento: App de Estudos Mobile
 
 ## 📱 Visão Geral do Projeto
 Este projeto foi desenvolvido durante a disciplina de **Tópicos em Desenvolvimento Mobile**, focado na criação de um ecossistema funcional para gestão de viagens e gastos.
@@ -6,7 +6,8 @@ Este projeto foi desenvolvido durante a disciplina de **Tópicos em Desenvolvime
 ## 🛠️ Tecnologias e Recursos Utilizados
 
 *   **Intents:** Utilizadas para a navegação fluida entre as diferentes telas (Activities) do aplicativo.
-*   **SQLite:** Implementado para o armazenamento persistente de dados estruturados e de maior volume.
+*   **Material Desing 3:** Utilizadas para a navegação fluida entre as diferentes telas (Activities) do aplicativo.
+*   **SQLite:** Uso do Material Desing 3 para criação de uma interface moderna e no padrão do androiod
 *   **SharedPreferences:**
     *   Gerenciamento de sessão (login do usuário).
     *   Recurso de "Lembrar Usuário", preenchendo automaticamente os campos de login e senha para melhorar a experiência do usuário (UX).

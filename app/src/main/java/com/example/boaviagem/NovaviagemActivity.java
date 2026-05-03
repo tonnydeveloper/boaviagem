@@ -61,16 +61,10 @@ public class NovaviagemActivity extends AppCompatActivity {
                 RadioButton selected = findViewById(checked);
                 String text = selected.getText().toString();
 
-                Toast.makeText(NovaviagemActivity.this, text, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(NovaviagemActivity.this, text, Toast.LENGTH_SHORT).show();
             }
         });
-        int init = radioGroup.getCheckedRadioButtonId();
 
-        if (init != -1){
-            RadioButton selected = findViewById(init);
-            String text = selected.getText().toString();
-            Toast.makeText(NovaviagemActivity.this, String.valueOf(text), Toast.LENGTH_SHORT).show();
-        }
         Integer id = s.getInt("id", 0);
         salvar.setOnClickListener(view -> {
             if(destino.getText().toString().isEmpty()){
@@ -112,7 +106,7 @@ public class NovaviagemActivity extends AppCompatActivity {
                 layoutPessoas.setError(null);
             }
 
-            DateTimeFormatter enter = null;
+            DateTimeFormatter enter;
             String dataChegada = "";
             String dataSaida = "";
 
@@ -124,9 +118,17 @@ public class NovaviagemActivity extends AppCompatActivity {
                 dataSaida = data2.toString();
             }
 
+            int init = radioGroup.getCheckedRadioButtonId();
+
+            if (init == -1){
+                Toast.makeText(NovaviagemActivity.this, "Selecione o tipo de viagem!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             RadioButton selected = findViewById(init);
             String text = selected.getText().toString().toLowerCase();
             int t  = (text.equals("lazer") ? 1 : (text.equals("trabalho") ? 2 : 0));
+
             ContentValues values = new ContentValues();
             values.put("destino", destino.getText().toString());
             values.put("tipo_viagem", t);
